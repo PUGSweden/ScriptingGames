@@ -124,7 +124,7 @@ function Get-Uptime
                 SessionOption = (New-CimSessionOption -Protocol Dcom)
                 OperationTimeoutSec = 1
             }
-            if($Credential -ne $null)
+            if($null -ne $Credential)
             {
                 $CimSessionParams.Credential = $Credential
             }
