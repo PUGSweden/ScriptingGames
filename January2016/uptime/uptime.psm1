@@ -153,8 +153,8 @@ function Get-Uptime
                     $Status = [StatusKind]::OK
                     [UptimeStatus]::New($CN,$StartTime,$Uptime,$Status)
                 }
+            $Session | Remove-CimSession -ErrorAction Ignore
         }
-
     }
     End
     {
