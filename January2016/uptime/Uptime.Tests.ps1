@@ -20,8 +20,7 @@ Describe "Uptime" {
     It "Returns ERROR status for accessdenied computer" {
         $Uptime = Get-Uptime -ComputerName ERRORCOMPUTER
         $Uptime.Status | Should be 'ERROR'
-        $Uptime.StartTime | Should be $null
-        $Uptime.Uptime | Should be $null
-            
+        $Uptime.StartTime | Should be ([DateTimeOffset]::MinValue)
+        $Uptime.Uptime | Should be ([Timespan]::FromTicks(0))
     }
 }
